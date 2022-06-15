@@ -1,8 +1,8 @@
 package com.java.webserver;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
@@ -46,7 +46,7 @@ public class Main {
 					
 					// Compare the resource and send back a response
 					if (resource.equals("/")) {
-						FileInputStream image = new FileInputStream(Main.class.getResource("java.jpg").toString().split("file:")[1]);
+						InputStream image = Main.class.getResourceAsStream("/java.jpg");
 						OutputStream clientOutput = client.getOutputStream();
 						clientOutput.write(("HTTP/1.1 200 OK\r\n").getBytes());
 						clientOutput.write(("\r\n").getBytes());
