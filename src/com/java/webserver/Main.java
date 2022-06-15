@@ -68,10 +68,7 @@ public class Main {
 					}
 					client.close();
 				}
-				
 			}
 		}
-
 	}
-
 }
